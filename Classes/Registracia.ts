@@ -1,32 +1,22 @@
 
-class Registracia {
-    celeMeno: string;
-    heslo: string;
-    mail: string;
-    telefon: string;
-    vek: number;
-    zameranie: string;
-    oSebe: string;
-
+export class Registracia {
     constructor(
-        celeMeno: string,
-        heslo: string,
-        mail: string,
-        telefon: string,
-        vek: number,
-        zameranie: string,
-        oSebe: string
-    ) {
-        this.celeMeno = celeMeno;
-        this.heslo = heslo;
-        this.mail = mail;
-        this.telefon = telefon;
-        this.vek = vek;
-        this.zameranie = zameranie;
-        this.oSebe = oSebe;
-    }
+        public celeMeno: string,
+        public heslo: string,
+        public mail: string,
+        public telefon: string,
+        public vek: number,
+        public zameranie: string,
+        public oSebe: string
+    ) {}
 
-    vypisInfo(): void {
-        console.log(`Používateľ: ${this.celeMeno}, Vek: ${this.vek}, Zameranie: ${this.zameranie}`);
+    vypis(): void {
+        console.log("\n✅ Registrácia úspešná:");
+        console.log(`Meno: ${this.celeMeno}`);
+        console.log(`Mail: ${this.mail}`);
+        console.log(`Telefón: ${this.telefon}`);
+        console.log(`Vek: ${this.vek}`);
+        console.log(`Zameranie: ${this.zameranie}`);
+        console.log(`O sebe: ${this.oSebe}`);
     }
 }
