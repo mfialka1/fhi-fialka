@@ -1,32 +1,23 @@
+import { Registracia } from "./Classes/Registracia";
+import { User } from "./Classes/User";
 
-class Zamestnanie {
-    protected meno: string;
+// Registrácia používateľa (napr. po registrácii v systéme)
+const registrovany = new Registracia(
+    "Ján Fialka",
+    "tajneheslo",
+    "jan@example.com",
+    "+421999888777",
+    22,
+    "Programovanie",
+    "gay"
+);
 
-    constructor(meno: string) {
-        this.meno = meno;
-    }
+// Vytvorenie používateľa
+const user = new User(registrovany);
 
-    vykonajPracu(): void {
-        console.log(` ${this.meno} vykonáva všeobecnú prácu.`);
-    }
-}
+// Simulácia prihlasenia (zadané údaje)
+const zadaneMeno = "Ján Fialka";
+const zadaneHeslo = "tajneheslo"; // ak zmeníš, prihlásenie zlyhá
 
-class Programator extends Zamestnanie {
-    vykonajPracu(): void {
-        console.log(` ${this.meno} programuje.`);
-    }
-}
-
-const osoby: Zamestnanie[] = [
-    new Programator("Matúš"),
-    new Zamestnanie("Zuzana")
-];
-
-osoby.forEach(o => o.vykonajPracu());
-
-const osoba1 = new Zamestnanie("Adam");
-const osoba2 = new Programator("Jakub");
-
-
-osoba1.vykonajPracu();
-osoba2.vykonajPracu();
+// Pokus o prihlásenie
+user.prihlasSa(zadaneMeno, zadaneHeslo);
