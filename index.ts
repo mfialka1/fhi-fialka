@@ -1,34 +1,33 @@
-const person1 = {
-    name: 'Alice',
-    age: 30
-}
+packages
 
-console.log(person1.name);
+class Zamestnanie {
+    protected meno: string;
 
-//------------------------------------------
-
-
-function vypisFibonacci(pocet: number): void {
-    if (pocet <= 0) {
-        console.log("");
-        return;
+    constructor(meno: string) {
+        this.meno = meno;
     }
 
-    const fibonacci: number[] = [0, 1]; // tu už je 0 a 1 isté
-
-    for (let i = 2; i < pocet; i++) {
-        const pred1 = fibonacci[i - 1]; // vždy existuje
-        const pred2 = fibonacci[i - 2]; // vždy existuje
-        fibonacci.push(pred1 + pred2);
+    vykonajPracu(): void {
+        console.log(` ${this.meno} vykonáva všeobecnú prácu.`);
     }
-
-    // ak pocet == 1, osekáme pole na [0]
-    console.log(fibonacci.slice(0, pocet).join(", "));
 }
 
-vypisFibonacci(10);
+class Programator extends Zamestnanie {
+    vykonajPracu(): void {
+        console.log(` ${this.meno} programuje.`);
+    }
+}
+
+const osoby: Zamestnanie[] = [
+    new Programator("Matúš"),
+    new Zamestnanie("Zuzana")
+];
+
+osoby.forEach(o => o.vykonajPracu());
+
+const osoba1 = new Zamestnanie("Adam");
+const osoba2 = new Programator("Jakub");
 
 
-
-
-
+osoba1.vykonajPracu();
+osoba2.vykonajPracu();

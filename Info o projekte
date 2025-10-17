@@ -1,0 +1,12 @@
+Janov projekt
+
+
+Registracia trieda: Meno, heslo, mail, vek, o sebe, zameranie
+
+
+vytvorime treidu user(meno a heslo)
+     - user sa bude prihlasovat do webovej appky : možnosť A - prihalsi sa
+                                                   možnosť B - neprihalsi sa(nebude sediet meno a ehslo)
+
+Ak možnoť A:
+Zobrazia sa udaje pri ktore vlozil pri registracii - tie si bude viediet urpavovata
