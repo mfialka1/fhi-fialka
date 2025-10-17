@@ -1,5 +1,5 @@
 
-class Registracia {
+export class Registracia {
     celeMeno: string;
     heslo: string;
     mail: string;
