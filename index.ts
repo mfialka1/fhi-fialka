@@ -1,4 +1,3 @@
-packages
 
 class Zamestnanie {
     protected meno: string;
