@@ -1,21 +1,28 @@
-import { Registracia } from "./Registracia";
-
 export class User {
-    private registracia: Registracia;
+    celeMeno: string;
+    heslo: string;
+    mail: string;
+    telefon: string;
 
-    constructor(registracia: Registracia) {
-        this.registracia = registracia;
-    }
+    vek?: number;
+    zameranie?: string;
+    oSebe?: string;
 
-    prihlasSa(zadaneMeno: string, zadaneHeslo: string): void {
-        if (zadaneMeno === this.registracia.celeMeno && zadaneHeslo === this.registracia.heslo)
-        {
-            console.log(`Prihlásenie úspešné. Vitaj, ${this.registracia.celeMeno}!`);
-            this.registracia.vypisInfo();
-        }
-        else
-        {
-            console.log("Nesprávne meno alebo heslo. Prihlásenie zlyhalo.");
-        }
+    constructor(
+        celeMeno: string,
+        heslo: string,
+        mail: string,
+        telefon: string,
+        vek?: number,
+        zameranie?: string,
+        oSebe?: string
+    ) {
+        this.celeMeno = celeMeno;
+        this.heslo = heslo;
+        this.mail = mail;
+        this.telefon = telefon;
+        this.vek = vek;
+        this.zameranie = zameranie;
+        this.oSebe = oSebe;
     }
 }
