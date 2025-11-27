@@ -21,12 +21,19 @@ app.use(express.urlencoded({ extended: true }));
 // ROUTES – definované pred static middleware
 // -----------------------------------------
 
-// HLAVNÁ STRÁNKA
+
+
+// HLAVNÁ STRÁNKA – tu si môžeš dať niečo iné
 app.get('/', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../front/index.html'));
+    res.sendFile(path.join(__dirname, './front/index.html'));
 });
 
-app.post('/', (req: Request, res: Response) => {
+// REGISTRÁCIA – presunuté z hlavnej
+app.get('/registracia', (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, '../front/registracia.html')); // tu je tvoj formulár
+});
+
+app.post('/registracia', (req: Request, res: Response) => {
     const { celeMeno, heslo, kontrolaheslo, mail, telefon } = req.body;
 
     if (heslo !== kontrolaheslo) {
@@ -41,7 +48,7 @@ app.post('/', (req: Request, res: Response) => {
 
 // PROFIL
 app.get('/profil', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../front/profil.html'));
+    res.sendFile(path.join(__dirname, './front/profil.html'));
 });
 
 app.get('/profil-data', (req: Request, res: Response) => {
@@ -61,7 +68,7 @@ app.get('/profil-data', (req: Request, res: Response) => {
 
 // KURZY
 app.get('/kurzy', (req: Request, res: Response) => {
-    res.sendFile(path.join(__dirname, '../front/kurzy.html'));
+    res.sendFile(path.join(__dirname, './front/kurzy.html'));
 });
 
 app.get("/api/kurzy", (req: Request, res: Response) => {
@@ -76,8 +83,8 @@ app.get('/kurzy-test', (req, res) => {
 // -----------------------------------------
 // Static middleware – až nakoniec!
 // -----------------------------------------
-app.use(express.static(path.join(__dirname, '../front')));
 
+app.use(express.static(path.join(__dirname, './front'), { index: false }));  //islo to s ..
 // -----------------------------------------
 // Spustenie servera
 // -----------------------------------------
@@ -90,4 +97,5 @@ app.listen(port, () => {
 // -----------------------------------------
 console.log("RUNNING FROM:", __dirname);
 console.log("STATIC PATH:", path.join(__dirname, '../front'));
-console.log(path.join(__dirname, '../front/kurzy.html'));
+console.log(path.join(__dirname, './front/kurzy.html'));
+console.log(path.join(__dirname, './front/registracia.html'));
